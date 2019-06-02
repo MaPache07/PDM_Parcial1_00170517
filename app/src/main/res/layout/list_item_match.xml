@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/generalPadding">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardElevation="@dimen/cardView"
+        card_view:cardCornerRadius="@dimen/cardView" >
+        <TextView
+            android:id="@+id/teamVs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBack"
+            android:textSize="32sp"
+            android:layout_margin="@dimen/generalPadding"/>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
