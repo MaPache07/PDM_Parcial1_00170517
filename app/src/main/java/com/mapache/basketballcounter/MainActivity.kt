@@ -1,16 +1,19 @@
 package com.mapache.basketballcounter
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
+import com.mapache.basketballcounter.database.entities.Match
 import com.mapache.basketballcounter.fragments.ListFragment
+import com.mapache.basketballcounter.utilities.AppConstants
 
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ListFragment.OnClickMatchListener {
 
     private lateinit var listFragment: ListFragment
 
@@ -20,8 +23,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+
         }
 
         listFragment = ListFragment.newInstance()
@@ -31,6 +33,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeFragment(id: Int, frag: Fragment){ supportFragmentManager.beginTransaction().replace(id, frag).commit() }
+
+    override fun OnClickSmallMatchListener(match : Match) {
+
+    }
+
+    override fun OnClickBigMatchListener(match : Match) {
+        var mIntent = Intent(this, MatchActivity::class.java)
+        var bundle = Bundle()
+        bundle.putParcelable(AppConstants.MATCH_KEY, match)
+        mIntent.putExtras(bundle)
+        startActivity(mIntent)
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

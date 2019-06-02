@@ -29,8 +29,8 @@ class ListFragment : Fragment() {
     }
 
     interface OnClickMatchListener{
-        fun OnClickSmallMatchListener()
-        fun OnClickBigMatchListener()
+        fun OnClickSmallMatchListener(match : Match)
+        fun OnClickBigMatchListener(match : Match)
     }
 
     override fun onAttach(context: Context?) {
@@ -49,8 +49,8 @@ class ListFragment : Fragment() {
 
     fun initRecycler(flag : Boolean, view: View){
         val linearLayoutManager = LinearLayoutManager(this.context)
-        matchAdapter = if(flag) MatchAdapter({ match : Match -> click?.OnClickBigMatchListener()})
-        else MatchAdapter({match : Match -> click?.OnClickSmallMatchListener()})
+        matchAdapter = if(flag) MatchAdapter({ match : Match -> click?.OnClickBigMatchListener(match)})
+        else MatchAdapter({match : Match -> click?.OnClickSmallMatchListener(match)})
         view.recycler_view.adapter = matchAdapter
         matchViewModel.allMatch.observe(this, Observer { matchs ->
             matchs.let {matchAdapter.setMatchs(it)}
