@@ -10,7 +10,7 @@ import com.mapache.basketballcounter.database.entities.Match
 interface MatchDao {
 
     @Query("SELECT * FROM match_table")
-    fun getAll() : LiveData<List<Match>>
+    fun getAllMatchs() : LiveData<List<Match>>
 
     @Insert
     suspend fun insert(match : Match)
