@@ -1,6 +1,7 @@
 package com.mapache.basketballcounter
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.mapache.basketballcounter.database.entities.Match
+import com.mapache.basketballcounter.fragments.ContentFragment
 import com.mapache.basketballcounter.fragments.ListFragment
 import com.mapache.basketballcounter.utilities.AppConstants
 
@@ -27,7 +29,8 @@ class MainActivity : AppCompatActivity(), ListFragment.OnClickMatchListener {
         }
 
         listFragment = ListFragment.newInstance()
-        var resource = if (resources.configuration.smallestScreenWidthDp >= 672) R.id.list_big_fragment
+        var resource = if (resources.configuration.smallestScreenWidthDp >= 672 &&
+            resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) R.id.list_big_fragment
         else R.id.list_small_fragmnet
         changeFragment(resource, listFragment)
     }
@@ -35,7 +38,8 @@ class MainActivity : AppCompatActivity(), ListFragment.OnClickMatchListener {
     private fun changeFragment(id: Int, frag: Fragment){ supportFragmentManager.beginTransaction().replace(id, frag).commit() }
 
     override fun OnClickSmallMatchListener(match : Match) {
-
+        var contentFragment = ContentFragment.newInstance(match)
+        changeFragment(R.id.content_fragment, contentFragment)
     }
 
     override fun OnClickBigMatchListener(match : Match) {

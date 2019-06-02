@@ -2,4 +2,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="generalPadding">8dp</dimen>
     <dimen name="cardView">4dp</dimen>
+    <dimen name="bigText">32sp</dimen>
 </resources>
