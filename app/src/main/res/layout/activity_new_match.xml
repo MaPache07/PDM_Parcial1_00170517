@@ -47,12 +47,14 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimaryLight"
+                        android:layout_margin="@dimen/generalPadding">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@{score.scoreA}"
-                            android:textColor="@color/colorBack"
+                            android:textColor="@color/colorWhite"
                             android:textSize="@dimen/superBigText"
                             android:layout_margin="@dimen/generalPadding"/>
                         <Button
@@ -61,37 +63,41 @@
                             android:layout_height="wrap_content"
                             android:text="+3 POINT"
                             android:layout_margin="@dimen/generalPadding"
-                            android:onClick="scorePlus"/>
+                            android:onClick="scorePlus"
+                            android:textColor="@color/colorWhite"
+                            android:backgroundTint="@color/colorAccent"/>
                         <Button
                             android:id="@+id/teamA_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="+2 POINT"
                             android:layout_margin="@dimen/generalPadding"
-                            android:onClick="scorePlus"/>
+                            android:onClick="scorePlus"
+                            android:textColor="@color/colorWhite"
+                            android:backgroundTint="@color/colorAccent"/>
                         <Button
                             android:id="@+id/teamA_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="FREE THROW"
                             android:layout_margin="@dimen/generalPadding"
-                            android:onClick="scorePlus"/>
+                            android:onClick="scorePlus"
+                            android:textColor="@color/colorWhite"
+                            android:backgroundTint="@color/colorAccent"/>
                     </LinearLayout>
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="@dimen/heightView"
-                        android:background="@color/colorPrimaryDark" />
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimaryLight"
+                        android:layout_margin="@dimen/generalPadding">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@{score.scoreB}"
-                            android:textColor="@color/colorBack"
+                            android:textColor="@color/colorWhite"
                             android:textSize="@dimen/superBigText"
                             android:layout_margin="@dimen/generalPadding"/>
                         <Button
@@ -100,21 +106,27 @@
                             android:layout_height="wrap_content"
                             android:text="+3 POINT"
                             android:layout_margin="@dimen/generalPadding"
-                            android:onClick="scorePlus"/>
+                            android:onClick="scorePlus"
+                            android:textColor="@color/colorWhite"
+                            android:backgroundTint="@color/colorAccent"/>
                         <Button
                             android:id="@+id/teamB_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="+2 POINT"
                             android:layout_margin="@dimen/generalPadding"
-                            android:onClick="scorePlus"/>
+                            android:onClick="scorePlus"
+                            android:textColor="@color/colorWhite"
+                            android:backgroundTint="@color/colorAccent"/>
                         <Button
                             android:id="@+id/teamB_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="FREE THROW"
                             android:layout_margin="@dimen/generalPadding"
-                            android:onClick="scorePlus"/>
+                            android:onClick="scorePlus"
+                            android:textColor="@color/colorWhite"
+                            android:backgroundTint="@color/colorAccent"/>
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -151,7 +163,9 @@
                         android:layout_height="wrap_content"
                         android:text="save"
                         android:layout_margin="@dimen/generalPadding"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center"
+                        android:textColor="@color/colorWhite"
+                        android:backgroundTint="@color/colorAccent"/>
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
