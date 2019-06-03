@@ -3,4 +3,7 @@
     <dimen name="generalPadding">8dp</dimen>
     <dimen name="cardView">4dp</dimen>
     <dimen name="bigText">32sp</dimen>
+    <dimen name="superBigText">36sp</dimen>
+    <dimen name="heightView">275dp</dimen>
+    <dimen name="normalText">18dp</dimen>
 </resources>

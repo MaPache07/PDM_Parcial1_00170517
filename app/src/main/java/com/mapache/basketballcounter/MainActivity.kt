@@ -3,7 +3,6 @@ package com.mapache.basketballcounter
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity(), ListFragment.OnClickMatchListener {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-
+            startActivity(Intent(this, NewMatchActivity::class.java))
         }
 
         listFragment = ListFragment.newInstance()
@@ -38,16 +37,16 @@ class MainActivity : AppCompatActivity(), ListFragment.OnClickMatchListener {
     private fun changeFragment(id: Int, frag: Fragment){ supportFragmentManager.beginTransaction().replace(id, frag).commit() }
 
     override fun OnClickSmallMatchListener(match : Match) {
-        var contentFragment = ContentFragment.newInstance(match)
-        changeFragment(R.id.content_fragment, contentFragment)
-    }
-
-    override fun OnClickBigMatchListener(match : Match) {
         var mIntent = Intent(this, MatchActivity::class.java)
         var bundle = Bundle()
         bundle.putParcelable(AppConstants.MATCH_KEY, match)
         mIntent.putExtras(bundle)
         startActivity(mIntent)
+    }
+
+    override fun OnClickBigMatchListener(match : Match) {
+        var contentFragment = ContentFragment.newInstance(match)
+        changeFragment(R.id.content_fragment, contentFragment)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
