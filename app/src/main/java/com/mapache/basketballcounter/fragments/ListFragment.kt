@@ -13,17 +13,21 @@ import com.mapache.basketballcounter.R
 import com.mapache.basketballcounter.adapters.MatchAdapter
 import com.mapache.basketballcounter.database.entities.Match
 import com.mapache.basketballcounter.database.viewmodels.MatchViewModel
+import com.mapache.basketballcounter.utilities.AppConstants
+import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
 
     lateinit var matchViewModel : MatchViewModel
     lateinit var matchAdapter: MatchAdapter
+    var flag : Boolean? = null
     var click : OnClickMatchListener? = null
 
     companion object{
-        fun newInstance() : ListFragment{
+        fun newInstance(flag : Boolean) : ListFragment{
             var newFragment = ListFragment()
+            newFragment.flag = flag
             return newFragment
         }
     }
@@ -42,14 +46,15 @@ class ListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.fragment_list, container, false)
+        if(savedInstanceState != null) flag = savedInstanceState.getBoolean(AppConstants.FLAG_KEY)
         matchViewModel = ViewModelProviders.of(this).get(MatchViewModel::class.java)
-        initRecycler(resources.configuration.smallestScreenWidthDp >= 672, view)
+        initRecycler(view)
         return view
     }
 
-    fun initRecycler(flag : Boolean, view: View){
+    fun initRecycler(view: View){
         val linearLayoutManager = LinearLayoutManager(this.context)
-        matchAdapter = if(flag) MatchAdapter({ match : Match -> click?.OnClickBigMatchListener(match)})
+        matchAdapter = if(this!!.flag!!) MatchAdapter({ match : Match -> click?.OnClickBigMatchListener(match)})
         else MatchAdapter({match : Match -> click?.OnClickSmallMatchListener(match)})
         view.recycler_view.adapter = matchAdapter
         matchViewModel.allMatch.observe(this, Observer { matchs ->
@@ -59,6 +64,11 @@ class ListFragment : Fragment() {
             setHasFixedSize(true)
             layoutManager = linearLayoutManager
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(AppConstants.FLAG_KEY, this!!.flag!!)
     }
 
     override fun onDetach() {

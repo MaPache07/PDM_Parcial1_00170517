@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.mapache.basketballcounter.R
 import com.mapache.basketballcounter.database.entities.Match
 import com.mapache.basketballcounter.database.viewmodels.MatchViewModel
+import com.mapache.basketballcounter.utilities.AppConstants
 import kotlinx.android.synthetic.main.fragment_content.view.*
 
 class ContentFragment : Fragment() {
@@ -28,8 +29,14 @@ class ContentFragment : Fragment() {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.fragment_content, container, false)
         matchViewModel = ViewModelProviders.of(this).get(MatchViewModel::class.java)
+        if(savedInstanceState != null) match = savedInstanceState.getParcelable(AppConstants.MATCH_KEY)
         bindData(view)
         return view
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(AppConstants.MATCH_KEY, match)
     }
 
     fun bindData(view: View){

@@ -13,6 +13,7 @@ import com.mapache.basketballcounter.fragments.ListFragment
 import com.mapache.basketballcounter.utilities.AppConstants
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), ListFragment.OnClickMatchListener {
 
@@ -27,10 +28,15 @@ class MainActivity : AppCompatActivity(), ListFragment.OnClickMatchListener {
             startActivity(Intent(this, NewMatchActivity::class.java))
         }
 
-        listFragment = ListFragment.newInstance()
-        var resource = if (resources.configuration.smallestScreenWidthDp >= 672 &&
-            resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) R.id.list_big_fragment
-        else R.id.list_small_fragmnet
+        var resource = 0
+        if (list_big_fragment != null){
+            resource = R.id.list_big_fragment
+            listFragment = ListFragment.newInstance(true)
+        }
+        else {
+            resource = R.id.list_small_fragmnet
+            listFragment = ListFragment.newInstance(false)
+        }
         changeFragment(resource, listFragment)
     }
 
