@@ -6,4 +6,7 @@
     <dimen name="superBigText">36sp</dimen>
     <dimen name="heightView">275dp</dimen>
     <dimen name="normalText">18dp</dimen>
+    <dimen name="superPadding">16dp</dimen>
+    <dimen name="normalBigText">24dp</dimen>
+    <dimen name="smallText">16sp</dimen>
 </resources>

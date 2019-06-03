@@ -32,6 +32,8 @@ class MatchAdapter(val clickListener: (Match) -> Unit) : RecyclerView.Adapter<Ma
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun bind(item : Match, clickListener: (Match) -> Unit) = with(itemView){
             teamVs.text = item.teamA + " VS " + item.teamB
+            list_date.text = item.date
+            list_time.text = item.time
             this.setOnClickListener {clickListener(item)}
         }
     }

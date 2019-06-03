@@ -5,26 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Winner"
-        android:textSize="@dimen/bigText"
-        android:textColor="@color/colorBack"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/generalPadding"/>
-    <TextView
-        android:id="@+id/winner_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/bigText"
-        android:textColor="@color/colorBack"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/generalPadding"/>
-
+        android:id="@+id/vs_tv"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/normalBigText"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/generalPadding"
+        android:gravity="center"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/generalPadding">
+        android:orientation="vertical"
+        android:background="@color/colorAccent"
+        android:paddingTop="@dimen/generalPadding"
+        android:paddingHorizontal="@dimen/generalPadding">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Winner"
+            android:textSize="@dimen/bigText"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/superPadding"/>
+        <TextView
+            android:id="@+id/winner_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/bigText"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/superPadding"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -32,18 +48,22 @@
             android:layout_weight="1">
             <TextView
                 android:id="@+id/teamA_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/bigText"
-                android:textColor="@color/colorBack"
-                android:layout_margin="@dimen/generalPadding"/>
+                android:textColor="@color/colorWhite"
+                android:padding="@dimen/generalPadding"
+                android:background="@color/colorPrimary"
+                android:gravity="center"/>
             <TextView
                 android:id="@+id/scoreA_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/bigText"
-                android:textColor="@color/colorBack"
-                android:layout_margin="@dimen/generalPadding"/>
+                android:textColor="@color/colorWhite"
+                android:padding="@dimen/generalPadding"
+                android:background="@color/colorPrimaryLight"
+                android:gravity="center"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -52,18 +72,22 @@
             android:layout_weight="1">
             <TextView
                 android:id="@+id/teamB_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/bigText"
-                android:textColor="@color/colorBack"
-                android:layout_margin="@dimen/generalPadding"/>
+                android:textColor="@color/colorWhite"
+                android:padding="@dimen/generalPadding"
+                android:background="@color/colorPrimary"
+                android:gravity="center"/>
             <TextView
                 android:id="@+id/scoreB_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/bigText"
-                android:textColor="@color/colorBack"
-                android:layout_margin="@dimen/generalPadding"/>
+                android:textColor="@color/colorWhite"
+                android:padding="@dimen/generalPadding"
+                android:background="@color/colorPrimaryLight"
+                android:gravity="center"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -74,14 +98,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dia: "
-            android:textSize="@dimen/bigText"
+            android:textSize="@dimen/normalBigText"
             android:textColor="@color/colorBack"/>
         <TextView
             android:id="@+id/dia_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBack"
-            android:textSize="@dimen/bigText"/>
+            android:textSize="@dimen/normalBigText"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -91,13 +115,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hora: "
-            android:textSize="@dimen/bigText"
+            android:textSize="@dimen/normalBigText"
             android:textColor="@color/colorBack"/>
         <TextView
             android:id="@+id/hora_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBack"
-            android:textSize="@dimen/bigText"/>
+            android:textSize="@dimen/normalBigText"/>
     </LinearLayout>
 </LinearLayout>

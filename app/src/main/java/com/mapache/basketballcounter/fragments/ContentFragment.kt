@@ -40,6 +40,7 @@ class ContentFragment : Fragment() {
     }
 
     fun bindData(view: View){
+        view.vs_tv.text = match.teamA + " VS " + match.teamB
         view.winner_tv.text = match.winner
         view.teamA_tv.text = match.teamA
         view.teamB_tv.text = match.teamB
